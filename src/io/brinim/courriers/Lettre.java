@@ -5,11 +5,11 @@ import io.brinim.courriers.enums.*;
 public class Lettre extends Courrier {
     private TypeLettre typeLettre;
 
-    public Lettre(String adresseDestination, String adresseExpedition, int poid, boolean estPrioritaire) {
+    public Lettre(String adresseDestination, String adresseExpedition, int poid, boolean estOrdinaire) {
         super(adresseDestination, adresseExpedition, poid);
 
-        if(estPrioritaire) {
-            typeLettre = TypeLettre.PRIORITAIRE;
+        if(estOrdinaire) {
+            typeLettre = TypeLettre.ORDINAIRE;
             return;
         }
 
