@@ -5,11 +5,14 @@ import io.brinim.courriers.enums.*;
 public class Lettre extends Courrier {
     private TypeLettre typeLettre;
 
-    public Lettre(String adresseDestination, String adresseExpedition, int poid) {
+    public Lettre(String adresseDestination, String adresseExpedition, int poid, boolean estPrioritaire) {
         super(adresseDestination, adresseExpedition, poid);
 
-        // TODO: Resolve Prio & Ordinaire since both have weight lower than 20g
-        // One solution would be to prompt the user for the type if it's a letter and if it's lower than 20g
+        if(estPrioritaire) {
+            typeLettre = TypeLettre.PRIORITAIRE;
+            return;
+        }
+
         for(var tl : TypeLettre.values())
             if (tl.getTypeLettre().poidRespecte(poid))
                 typeLettre = tl;
