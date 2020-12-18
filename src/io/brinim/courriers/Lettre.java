@@ -9,7 +9,7 @@ public class Lettre extends Courrier {
         super(adresseDestination, adresseExpedition, poid);
 
         // TODO: Resolve Prio & Ordinaire since both have weight lower than 20g
-        // One solution would be to prompt the user for the type if it's a letter, and it's lower than 20g
+        // One solution would be to prompt the user for the type if it's a letter and if it's lower than 20g
         for(var tl : TypeLettre.values())
             if (tl.getTypeLettre().poidRespecte(poid))
                 typeLettre = tl;
