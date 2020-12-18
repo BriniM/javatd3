@@ -3,13 +3,19 @@ package io.brinim.courriers.enums;
 public class ProprietesColis {
     final private double taxeFixe;
     final private double taxeParKgSupp;
+    final private int seuilPoid;
 
-    public ProprietesColis(double taxeFixe, double taxeParKgSupp) {
+    public ProprietesColis(double taxeFixe, double taxeParKgSupp, int seuilPoid) {
         this.taxeFixe = taxeFixe;
         this.taxeParKgSupp = taxeParKgSupp;
+        this.seuilPoid = seuilPoid;
     }
 
     public double getTarification(double poid) {
-        return taxeFixe + Math.ceil((poid - 2000)/ 1000) * taxeParKgSupp;
+        if (poid > seuilPoid) {
+            return taxeFixe + Math.ceil((poid - seuilPoid) / 1000) * taxeParKgSupp;
+        }
+
+        return taxeFixe;
     }
 }

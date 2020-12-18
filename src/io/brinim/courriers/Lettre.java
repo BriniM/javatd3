@@ -5,17 +5,10 @@ import io.brinim.courriers.enums.*;
 public class Lettre extends Courrier {
     private TypeLettre typeLettre;
 
-    public Lettre(String adresseDestination, String adresseExpedition, int poid, boolean estOrdinaire) {
+    public Lettre(String adresseDestination, String adresseExpedition, int poid, TypeLettre tl) {
         super(adresseDestination, adresseExpedition, poid);
 
-        if(estOrdinaire) {
-            typeLettre = TypeLettre.ORDINAIRE;
-            return;
-        }
-
-        for(var tl : TypeLettre.values())
-            if (tl.getTypeLettre().poidRespecte(poid))
-                typeLettre = tl;
+        typeLettre = tl;
     }
 
     public double calculTimbre() {

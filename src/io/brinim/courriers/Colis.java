@@ -8,7 +8,7 @@ public class Colis extends Courrier {
 
     public Colis(String adresseDestination, String adresseExpedition, int poid) {
         super(adresseDestination, adresseExpedition, poid);
-        pc = new ProprietesColis(4.3, 0.3);
+        pc = new ProprietesColis(4.3, 0.3, 2000);
     }
 
     public double calculTimbre() {

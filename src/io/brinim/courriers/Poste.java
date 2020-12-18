@@ -1,9 +1,26 @@
 package io.brinim.courriers;
 
+import io.brinim.courriers.enums.TypeCourrier;
+import io.brinim.courriers.enums.TypeLettre;
+
 import java.util.ArrayList;
+import java.util.EnumSet;
 
 public class Poste {
     ArrayList<Courrier> cr = new ArrayList<>();
+
+    public void ajouterCourrier(String adresseExp, String adresseDest, int poid, TypeCourrier tc) {
+        switch(tc) {
+            case COLIS:
+                cr.add(new Colis(adresseDest, adresseExp, poid));
+                break;
+            case LETTRE:
+                try {
+                    var typeLettre = Menu.question("type lettre", new ArrayList<Enum>(EnumSet.allOf(TypeLettre.class)));
+                    cr.add(new Lettre(adresseDest, adresseExp, poid, (TypeLettre)typeLettre));
+                } catch (Exception e) { System.out.println(e); }
+        }
+    }
 
     public ArrayList<Courrier> getCourriers() {
         return cr;
