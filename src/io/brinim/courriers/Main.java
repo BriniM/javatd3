@@ -7,6 +7,7 @@ public class Main {
             var type = Menu.question("Type courrier", "Lettre/Colis");
             var adresseExp = Menu.question("adresse d'expedition");
             var adresseDest = Menu.question("adresse destination");
+            // TODO: Ensure this call doesn't break the app
             var poid = Integer.parseInt(Menu.question("le poid", "en grammes"));
 
             if (type.equalsIgnoreCase("colis"))
