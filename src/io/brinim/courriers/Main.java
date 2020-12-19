@@ -2,9 +2,6 @@ package io.brinim.courriers;
 
 import io.brinim.courriers.enums.TypeCourrier;
 
-import java.util.ArrayList;
-import java.util.EnumSet;
-
 public class Main {
     static Poste p = new Poste();
     public static void main(String[] args) {
@@ -20,7 +17,7 @@ public class Main {
             var adresseExp = Menu.question("adresse d'expédition");
             var adresseDest = Menu.question("adresse destination");
             var poid = Menu.question("poid", "en grammes, ex: 15", "^[0-9]+$");
-            var type = Menu.question("Type courrier", new ArrayList<>(EnumSet.allOf(TypeCourrier.class)));
+            var type = Menu.question("Type courrier", TypeCourrier.class);
 
             p.ajouterCourrier(adresseExp, adresseDest, Integer.parseInt(poid), (TypeCourrier)type);
         } catch (Exception e) { System.out.println(e.getMessage()); }

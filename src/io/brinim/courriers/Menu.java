@@ -1,6 +1,6 @@
 package io.brinim.courriers;
 
-import java.util.List;
+import java.util.EnumSet;
 import java.util.Scanner;
 import java.util.HashMap;
 import java.util.regex.Pattern;
@@ -29,14 +29,15 @@ final class Menu {
         throw new Exception(String.format("Veuillez reformuler %s", cle));
     }
 
-    public static Enum question(String cle, List<Enum> types) throws Exception {
+    public static Enum question(String cle, Class type) throws Exception {
+        var types = EnumSet.allOf(type);
         System.out.printf("Types disponibles: %s\n", types.toString());
         System.out.printf("Donner %s: ", cle);
         var input = sc.nextLine();
 
         for (var t : types)
             if (t.toString().equalsIgnoreCase(input))
-                return t;
+                return (Enum)t;
 
         throw new Exception(String.format("Veuillez reformuler %s", cle));
     }
