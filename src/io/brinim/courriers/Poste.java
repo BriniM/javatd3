@@ -16,9 +16,9 @@ public class Poste {
                 break;
             case LETTRE:
                 try {
-                    var typeLettre = Menu.question("type lettre", new ArrayList<Enum>(EnumSet.allOf(TypeLettre.class)));
+                    var typeLettre = Menu.question("type lettre", new ArrayList<>(EnumSet.allOf(TypeLettre.class)));
                     cr.add(new Lettre(adresseDest, adresseExp, poid, (TypeLettre)typeLettre));
-                } catch (Exception e) { System.out.println(e); }
+                } catch (Exception e) { System.out.println(e.getMessage()); }
         }
     }
 

@@ -23,6 +23,6 @@ public class Main {
             var type = Menu.question("Type courrier", new ArrayList<>(EnumSet.allOf(TypeCourrier.class)));
 
             p.ajouterCourrier(adresseExp, adresseDest, Integer.parseInt(poid), (TypeCourrier)type);
-        } catch (Exception e) { System.out.println(e); }
+        } catch (Exception e) { System.out.println(e.getMessage()); }
     }
 }
