@@ -4,7 +4,6 @@ import io.brinim.courriers.enums.TypeCourrier;
 import io.brinim.courriers.enums.TypeLettre;
 
 import java.util.ArrayList;
-import java.util.EnumSet;
 
 public class Poste {
     ArrayList<Courrier> cr = new ArrayList<>();

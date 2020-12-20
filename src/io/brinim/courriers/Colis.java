@@ -1,18 +1,20 @@
 package io.brinim.courriers;
 
-import io.brinim.courriers.enums.ProprietesColis;
-
 public class Colis extends Courrier {
-    /* Il est possible d'ajouter TypeColis si le besoin évolue */
-    ProprietesColis pc;
+    final private double taxeFixe = 4.3;
+    final private double taxeParKgSupp = 0.3;
+    final private int seuilPoid = 2000;
 
     public Colis(String adresseDestination, String adresseExpedition, int poid) {
         super(adresseDestination, adresseExpedition, poid);
-        pc = new ProprietesColis(4.3, 0.3, 2000);
     }
 
     public double calculTimbre() {
-        return pc.getTarification(getPoid());
+        if (getPoid() > seuilPoid) {
+            return taxeFixe + Math.ceil((getPoid() - seuilPoid) / 1000.) * taxeParKgSupp;
+        }
+
+        return taxeFixe;
     }
 
     public String toString() {
