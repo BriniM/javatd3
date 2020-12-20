@@ -1,9 +1,9 @@
 package io.brinim.courriers;
 
 public class Colis extends Courrier {
-    final private double taxeFixe = 4.3;
-    final private double taxeParKgSupp = 0.3;
-    final private int seuilPoid = 2000;
+    final static private double taxeFixe = 4.3;
+    final static private double taxeParKgSupp = 0.3;
+    final static private int seuilPoid = 2000;
 
     public Colis(String adresseDestination, String adresseExpedition, int poid) {
         super(adresseDestination, adresseExpedition, poid);
