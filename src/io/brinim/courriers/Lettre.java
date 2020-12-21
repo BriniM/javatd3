@@ -11,7 +11,7 @@ public class Lettre extends Courrier {
 
         var propLettre = tl.getTypeLettre();
         if (! propLettre.poidRespecte(poid))
-            throw new Exception(String.format("Le poid doit étre supérieur ou égale a %d et inférieur a %d.",
+            throw new Exception(String.format("Le poid doit étre supérieur a %d et inférieur ou egale a %d.",
                     propLettre.getPoidMin(), propLettre.getPoidMax()));
     }
 
